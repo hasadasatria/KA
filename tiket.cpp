@@ -77,7 +77,28 @@ void search(struct node *head){
         }
     }    
 }
-
+ 
+/* PROSEDUR PEMBAYARAN TIKET DENGAN MEMASUKKAN KODE TIKET TERLEBIH DAHULU */
+void buy(struct node *&head){
+    string kd;
+    int jmltk;
+    int hrg;
+    struct node *getit;
+    getit=head;
+    cout<< " Kode Kereta : ";cin>> kd;
+    
+    //pencarian tiket
+    while(getit !=NULL){
+        if(getit->kode==kd){
+            hrg = getit->price;
+            
+        }
+        getit= getit->next;
+    }
+    cout<< " Harga Tiket : "<<hrg<<endl;
+    cout<< " Jumlah Tiket : ";cin>>jmltk;
+    cout<< " Total Pembayaran : "<<jmltk *hrg<<endl;
+}
 
 void judul(){ //judul menu
     cout<< "===================================="<<endl;
@@ -162,18 +183,21 @@ int main(){
             for(int i=1; i<=jml; i++){
             cout<< " ANDA MEMASUKKAN DATA KE - "<<i<<endl;
             insert(head,tail);
+            cout<<endl;
             }
             system("pause");
             break;
         case 2:
             system("cls");
             cout<< "====== Data KA yang tersedia ======"<<endl;
-            view(head);            
+            view(head);
+            cout<< "==================================="<<endl;            
             system("pause");
             break;
         case 3: 
             system("cls");
-            //BELUM ADA 
+            cout<< "====PEMBELIAN TIKET===="<<endl;
+            buy(head);
             system("pause");
             break;
         case 4:
